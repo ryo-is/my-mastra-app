@@ -1,18 +1,24 @@
 import { openai } from '@ai-sdk/openai';
 import { AgentNetwork } from '@mastra/core/network';
 import {
-  primaryResearchAgent,
-  webSearchAgent,
-  academicResearchAgent,
-  factCheckingAgent,
-  dataAnalysisAgent,
+	primaryResearchAgent,
+	webSearchAgent,
+	academicResearchAgent,
+	factCheckingAgent,
+	dataAnalysisAgent,
 } from '../agents';
 
 export const researchNetwork = new AgentNetwork({
-  name: 'Research Network',
-  agents: [primaryResearchAgent, webSearchAgent, academicResearchAgent, factCheckingAgent, dataAnalysisAgent],
-  model: openai('gpt-4o'), // Add the model property which is required
-  instructions: `
+	name: 'Research Network',
+	agents: [
+		primaryResearchAgent,
+		webSearchAgent,
+		academicResearchAgent,
+		factCheckingAgent,
+		dataAnalysisAgent,
+	],
+	model: openai('gpt-4o'), // Add the model property which is required
+	instructions: `
       You are a research coordination system that routes queries to the appropriate specialized agents.
       
       Your available agents are:

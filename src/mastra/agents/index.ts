@@ -3,8 +3,8 @@ import { Agent } from '@mastra/core/agent';
 import { weatherTool } from '../tools';
 
 export const weatherAgent = new Agent({
-  name: 'Weather Agent',
-  instructions: `
+	name: 'Weather Agent',
+	instructions: `
       You are a helpful weather assistant that provides accurate weather information.
 
       Your primary function is to help users get weather details for specific locations. When responding:
@@ -16,13 +16,13 @@ export const weatherAgent = new Agent({
 
       Use the weatherTool to fetch current weather data.
 `,
-  model: openai('gpt-4o'),
-  tools: { weatherTool },
+	model: openai('gpt-4o'),
+	tools: { weatherTool },
 });
 
 export const primaryResearchAgent = new Agent({
-  name: 'Primary Research Agent',
-  instructions: `
+	name: 'Primary Research Agent',
+	instructions: `
     You are the primary research coordinator. Your job is to:
     1. Analyze user queries to determine what type of research is needed
     2. Break down complex research questions into manageable sub-questions
@@ -32,12 +32,12 @@ export const primaryResearchAgent = new Agent({
     
     You should maintain a neutral, objective tone and prioritize accuracy over speed.
   `,
-  model: openai('gpt-4o'),
+	model: openai('gpt-4o'),
 });
 
 export const webSearchAgent = new Agent({
-  name: 'Web Search Agent',
-  instructions: `
+	name: 'Web Search Agent',
+	instructions: `
     You are a web search specialist. Your job is to:
     1. Find the most relevant and up-to-date information online for a given query
     2. Evaluate the credibility of sources and prioritize reliable information
@@ -49,15 +49,15 @@ export const webSearchAgent = new Agent({
 
     Use the "web_search_preview" tool to search the web for information.
   `,
-  model: openai.responses('gpt-4o-mini'),
-  tools: {
-    web_search_preview: openai.tools.webSearchPreview(),
-  },
+	model: openai.responses('gpt-4o-mini'),
+	tools: {
+		web_search_preview: openai.tools.webSearchPreview(),
+	},
 });
 
 export const academicResearchAgent = new Agent({
-  name: 'Academic Research Agent',
-  instructions: `
+	name: 'Academic Research Agent',
+	instructions: `
     You are an academic research specialist. Your job is to:
     1. Analyze topics from an academic perspective
     2. Identify key theories, frameworks, and scholarly debates relevant to a query
@@ -67,12 +67,12 @@ export const academicResearchAgent = new Agent({
     
     Prioritize peer-reviewed research and established academic sources.
   `,
-  model: openai('gpt-4o'),
+	model: openai('gpt-4o'),
 });
 
 export const factCheckingAgent = new Agent({
-  name: 'Fact Checking Agent',
-  instructions: `
+	name: 'Fact Checking Agent',
+	instructions: `
     You are a fact-checking specialist. Your job is to:
     1. Verify claims made by other agents or in user queries
     2. Identify potential misinformation or unsubstantiated claims
@@ -82,12 +82,12 @@ export const factCheckingAgent = new Agent({
     
     Be thorough and skeptical, but fair in your assessments.
   `,
-  model: openai('gpt-4o-mini'),
+	model: openai('gpt-4o-mini'),
 });
 
 export const dataAnalysisAgent = new Agent({
-  name: 'Data Analysis Agent',
-  instructions: `
+	name: 'Data Analysis Agent',
+	instructions: `
     You are a data analysis specialist. Your job is to:
     1. Interpret numerical data and statistics related to research queries
     2. Identify trends, patterns, and correlations in data
@@ -97,5 +97,5 @@ export const dataAnalysisAgent = new Agent({
     
     Always consider sample sizes, statistical significance, and potential biases in data.
   `,
-  model: openai('gpt-4o'),
+	model: openai('gpt-4o'),
 });
